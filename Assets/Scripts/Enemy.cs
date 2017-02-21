@@ -65,26 +65,34 @@ public class Enemy : MonoBehaviour {
 	//
 	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		// find out what we've hit
-		if (hit.collider.gameObject.CompareTag ("Pipe")) {
-			// we've hit the pipe
+        // find out what we've hit
+        if (hit.collider.gameObject.CompareTag("Pipe")) {
+            // we've hit the pipe
 
-			// flip the direction of the enemy
-			direction = -direction;
-		} else if (hit.collider.gameObject.CompareTag ("Player")) {
-			// we've hit the player
+            // flip the direction of the enemy
+            direction = -direction;
+        } else if (hit.collider.gameObject.CompareTag("Player")) {
 
-			// get player script component
-			Player playerComponent = playerGameObject.GetComponent<Player> ();
+            // we've hit the player
 
-			// remove a life from the player
-			playerComponent.Lives = playerComponent.Lives - 1;
+            // get player script component
+            Player playerComponent = playerGameObject.GetComponent<Player>();
 
-			// reset the player
-			playerComponent.Reset();
+            // remove a life from the player
+            playerComponent.Lives = playerComponent.Lives - 1;
 
-			// reset the enemy
-			Reset();
-		}
+            // reset the player
+            playerComponent.Reset();
+
+            // reset the enemy
+            Reset();
+        } else if (hit.collider.gameObject.CompareTag("Feet")){
+            Destroy(gameObject);
+            Destroy(this);
+
+            Player playerComponent = playerGameObject.GetComponent<Player>();
+            playerComponent.jump();
+            //playerComponent.moveDirection.y = playerComponent.jumpSpeed;    
+        }
 	}
 }

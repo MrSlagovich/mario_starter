@@ -27,6 +27,10 @@ public class Player : MonoBehaviour {
 		// reset the player position to the start position
 		transform.position = start_position;
 	}
+    public void jump()
+    {
+        moveDirection.y = jumpSpeed;
+    }
 
 	void Update()
 	{
@@ -42,9 +46,9 @@ public class Player : MonoBehaviour {
 			moveDirection = transform.TransformDirection(moveDirection);
 			moveDirection *= speed;
 
-			// check to see if the player should jump
-			if (Input.GetButton("Jump"))
-				moveDirection.y = jumpSpeed;
+            // check to see if the player should jump
+            if (Input.GetButton("Jump"))
+                jump();
 		}
 
 		// apply gravity to movement direction
