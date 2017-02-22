@@ -33,6 +33,10 @@ public class Player : MonoBehaviour {
 		// reset the player position to the start position
 		transform.position = start_position;
 	}
+    public void jump()
+    {
+        moveDirection.y = jumpSpeed;
+    }
 
 	void Update()
 	{
@@ -53,6 +57,7 @@ public class Player : MonoBehaviour {
 			jumpStartHeight = transform.position.y;
 		}
 
+<<<<<<< HEAD
 		// check to see if the player should jump
 		if (Input.GetButton("Jump") && ((transform.position.y - jumpStartHeight) < maxJumpHeight) && (lastPosition.y <= transform.position.y))
 		{
@@ -62,6 +67,11 @@ public class Player : MonoBehaviour {
 				jumping = true;
 			}
 			moveDirection.y = jumpSpeed;
+=======
+            // check to see if the player should jump
+            if (Input.GetButton("Jump"))
+                jump();
+>>>>>>> refs/remotes/MrSlagovich/master
 		}
 
 		// apply gravity to movement direction
