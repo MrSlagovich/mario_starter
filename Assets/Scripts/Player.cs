@@ -19,10 +19,17 @@ public class Player : MonoBehaviour {
     private bool falling = false;
 	private Vector3 lastPosition;
 
+    private float jumpTime = 0.0f;
+    private bool falling = false;
+	private Vector3 lastPosition;
+
 	public int Lives = 3; // number of lives the player hs
     public int coins = 0;
+<<<<<<< HEAD
 	Vector3 start_position; // start position of the player
     public GameObject bullet;
+=======
+>>>>>>> origin/master
 
     //Drag in the Bullet Emitter from the Component Inspector.
     public GameObject Bullet_Emitter;
@@ -47,6 +54,7 @@ public class Player : MonoBehaviour {
     {
         moveDirection.y = jumpSpeed;
     }
+<<<<<<< HEAD
 
     public void fire()
     {
@@ -61,6 +69,8 @@ public class Player : MonoBehaviour {
             
         }
     }
+=======
+>>>>>>> origin/master
 
 	void Update()
 	{
