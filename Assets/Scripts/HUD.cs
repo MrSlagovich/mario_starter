@@ -6,6 +6,7 @@ public class HUD : MonoBehaviour {
 	// the following variables need connected up in the editor inspector
 	public Text livesText; // text object to display the number of lives
 	public Text gameOverText; // text object to display game over message
+    public Text coinsText;
 
 
 	Player playerComponent;
@@ -25,6 +26,9 @@ public class HUD : MonoBehaviour {
 
 		// update the display for the player's number of lives
 		livesText.text = "Lives: "+playerComponent.Lives;
+
+        // update HUD to display coins collected
+        coinsText.text = "Coints: " + playerComponent.coins;
 
 		// if game over, then display game over text
 		if (gameLogicComponent.gameOver == true) {
